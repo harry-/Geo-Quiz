@@ -1,0 +1,1 @@
+[replace this entire line (including the brackets) with your google maps api key and rename the file  to ApiKey.txt]
