@@ -20,8 +20,9 @@ namespace GeoQuiz
             if (e.KeyChar == (char)Keys.Return)
             {
                 string country = textBox1.Text;
+                Debug.WriteLine(Properties.Resources.ApiKey);
 
-                pictureBox1.ImageLocation = "https://maps.googleapis.com/maps/api/staticmap?size=400x400&maptype=hybrid&center=" + country + "&style=feature:administrative.country|element:labels.text|visibility:off|&&size=400x400&markers=color:blue|" + country + " &key=AIzaSyAp3FIq-3_B3ziePfEb9bwaPL2Gsbf9cIM";
+                pictureBox1.ImageLocation = "https://maps.googleapis.com/maps/api/staticmap?size=400x400&maptype=hybrid&center=" + country + "&style=feature:administrative.country|element:labels.text|visibility:off|&&size=400x400&markers=color:blue|" + country + "&key="+Properties.Resources.ApiKey;
             }
         }
 
@@ -37,7 +38,7 @@ namespace GeoQuiz
             label1.Text= "Score: " + score + "/" + questionsAsked;
             questionsAsked++;
 
-            pictureBox1.ImageLocation = "https://maps.googleapis.com/maps/api/staticmap?size=400x400&maptype=hybrid&center=" + question.CorrectAnswer + "&style=feature:administrative.country|element:labels.text|visibility:off|&&size=400x400&markers=color:blue|" + question.CorrectAnswer + " &key=AIzaSyAp3FIq-3_B3ziePfEb9bwaPL2Gsbf9cIM";
+            pictureBox1.ImageLocation = "https://maps.googleapis.com/maps/api/staticmap?size=400x400&maptype=hybrid&center=" + question.CorrectAnswer + "&style=feature:administrative.country|element:labels.text|visibility:off|&&size=400x400&markers=color:blue|" + question.CorrectAnswer + " &key=" + Properties.Resources.ApiKey; 
 
             Button[] buttons = { button1, button2, button3, button6, button7 };
             for (int i = 0; i < question.Choices.Length; i++)
@@ -51,10 +52,12 @@ namespace GeoQuiz
             if (question.CorrectAnswer == choice)
             {
                 Debug.WriteLine("richtig");
+                pictureBox2.Image = Properties.Resources.OK;
                 score++;
             } else
             {
                 Debug.WriteLine("falsch");
+                pictureBox2.Image = Properties.Resources.NOT_OK;
             }
             NextQuestion();
         }
@@ -86,7 +89,9 @@ namespace GeoQuiz
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            NextQuestion();
         }
+
+
     }
 }

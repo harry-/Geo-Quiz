@@ -1,4 +1,4 @@
 bin/
 obj/
-*.png
+staticmap.png
 Resources/ApiKey.txt
