@@ -83,7 +83,6 @@
   <ItemGroup>
     <None Include="Resources\OK.png" />
     <None Include="Resources\NOT_OK.png" />
-    <None Include="Resources\OK_not_OK.png" />
     <None Include="Resources\ApiKey.txt" />
     <None Include="Resources\ApiKeyRENAMETHIS.txt" />
     <Content Include="Resources\countries.txt" />
