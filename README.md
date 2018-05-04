@@ -8,6 +8,9 @@ Sign up to the [Google Cloud Platform](https://cloud.google.com).
 
 Generate an API key [here](https://developers.google.com/maps/documentation/static-maps/). Replace the content of the file ApiKeyRENAMETHIS.txt with your newly generated key and rename the file to ApiKey.txt
 
+Install the [SimpleHashing.net] (https://www.nuget.org/packages/SimpleHashing.Net/) nuget package.
+
+There are two modes: Online and Offline. Online mode requires an SQL Server Database. Find the sql scripts to set it up in database.sql. You probably will also have to set up a corresponding server login with the rights to read and write data and also to execute procedures.
 
 ## Compilation
 
@@ -20,3 +23,7 @@ All you need to do is run the file GeoQuiz.exe that should have been created in 
 ## Usage
 
 Self explanatory.
+
+## Acknowledgments
+
+SimpleHashing.net is written and mantained by Ilya Chernomordik(https://github.com/ilya-git).
