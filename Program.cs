@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace GeoQuiz
 {
-    static class Program
+    internal static class Program
     {
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.EnableVisualStyles();
+
+            Debug.WriteLine(typeof(string).Assembly.ImageRuntimeVersion);
 
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new GeoQuiz());

@@ -1,43 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 using System.Diagnostics;
 
 namespace GeoQuiz
 {
-    class Question
+    internal class Question
     {
-        private string countries = Properties.Resources.countries;
-
-        private int numberOfChoices = 5;
-        private string correctAnswer;
-        private string[] choices = new string[5];
-        private Random random = new Random();
+        private readonly string _countries = Properties.Resources.countries;
+        private const int NumberOfChoices = 6;
+        private readonly Random _random = new Random();
 
         public Question()
         {
-            for (var i = 0; i < numberOfChoices;i++)
+            for (var i = 0; i < NumberOfChoices;i++)
             {
-                choices[i] = RandomCountry();
- 
+                Choices[i] = RandomCountry();
             }
-            correctAnswer = choices[new Random().Next(numberOfChoices)];
+            CorrectAnswer = Choices[new Random().Next(NumberOfChoices)];
         }
 
-        public string CorrectAnswer { get => correctAnswer;  }
-        public string[] Choices { get => choices; }
+        public string CorrectAnswer { get; }
+        public string[] Choices { get; } = new string[6];
 
         public string RandomCountry()
         {
-            
-            var lineCount = countries.Count(c => c == '\n') ;
+            int lineCount = _countries.Count(c => c == '\n') ;
 
-            int randomLineNumber = random.Next(lineCount);
+            int randomLineNumber = _random.Next(lineCount);
            
-            var lines = countries.Split('\n');
+            var lines = _countries.Split('\n');
 
             Debug.WriteLine("Number of lines: " + lineCount);
             Debug.WriteLine("Random line: " + randomLineNumber+ ": " + lines[randomLineNumber]);
